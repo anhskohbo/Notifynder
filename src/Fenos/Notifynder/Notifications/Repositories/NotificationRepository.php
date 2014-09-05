@@ -263,13 +263,12 @@ class NotificationRepository {
      * not read
      *
      * @param $to_id
-     * @return mixed
+     * @return integer
      */
     public function countNotRead($to_id)
     {
         return $this->notification->wherePolymorphic('to_id','to_type',$to_id,$this->entity)
             ->withNotRead()
-            ->select($this->db->raw('Count(*) as notRead'))
-            ->first();
+            ->count()
     }
 } 
