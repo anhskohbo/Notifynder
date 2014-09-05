@@ -269,6 +269,6 @@ class NotificationRepository {
     {
         return $this->notification->wherePolymorphic('to_id','to_type',$to_id,$this->entity)
             ->withNotRead()
-            ->count()
+            ->count();
     }
 } 
